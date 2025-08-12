@@ -1,7 +1,7 @@
 <h1>Cybr - [LAB] Importing AWS resources into Terraform</h1>
 Once you start using Terraform in a real environment, you will inevitably come across resources that were created manually in the AWS account and that need to be transferred over to IaC for management. Understanding how to import those resources into Terraform will save you countless hours. Practice what you've learned about the two options for importing resources with this lab environment that pre-deploys an Amazon S3 bucket.
 
-<h1>Scenario 👨‍🔬</h1>
+<h1>Now let's take a look at the scenario presented:</h1>
 For our scenario, let’s pretend that you’ve already completed this course, and you go to your team to tell them you need to start using Terraform and IaC to manage all of your infrastructure in AWS accounts. You decide to start with one of the easiest accounts that has the fewest resources. That account has an Amazon S3 bucket that was manually created. You’d like to start by importing that resource.
 
 It’s imperative that you not change any of the bucket’s existing settings/configurations! You are only importing the existing resource, not applying any changes to that bucket.
@@ -16,7 +16,7 @@ You’ve completed this step when you get the following message:
 
 <img width="624" height="377" alt="image" src="https://github.com/user-attachments/assets/8b307215-d758-41ef-8a75-153aa225d2ec" />
 
-First we configure our CLI
+First we configure our CLI with the provided credentials
 
     aws configure
 
@@ -25,14 +25,53 @@ Create Three files
 2. provider.tf
 3. variables.tf
 
-    
+        Provider.tf file
+        
+        terraform {
+          required_providers {
+            aws = {
+              source  = "hashicorp/aws"
+              version = "5.63.1"
+            }
+          }
+        }
+        
+        provider "aws" {
+          region = var.aws_region
+        }
+
+
+Variables.tf file
+
+        variable "aws_region" {
+          description = "The aws region to deploy in."
+          type        = string
+          default     = "us-east-1"
+        }
+
+
 Next we list our buckets
     
     aws s3api list-buckets
 
   <img width="591" height="228" alt="image" src="https://github.com/user-attachments/assets/f3837241-9316-45b6-a876-2d55a1bd83e6" />
 
-  run the 
+ Use the bucket name to update the main.tf file
+
+
+        import {
+          to = aws_s3_bucket.bucket_to_import
+          id = "cybrlab-import-bucket-014498641677"
+        }
+        
+        resource "aws_s3_bucket" "bucket_to_import" {
+            bucket = "cybrlab-import-bucket-014498641677"
+            force_destroy = true
+            
+        }
+
+  
+ Now,  run the 
   
     terraform init command 
 
