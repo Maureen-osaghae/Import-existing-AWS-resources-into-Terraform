@@ -49,6 +49,7 @@ Variables.tf file
           default     = "us-east-1"
         }
 
+Note, Cybr lab is always set to us-east-1
 
 Next we list our buckets
     
