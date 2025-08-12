@@ -16,7 +16,7 @@ You’ve completed this step when you get the following message:
 
 <img width="624" height="377" alt="image" src="https://github.com/user-attachments/assets/8b307215-d758-41ef-8a75-153aa225d2ec" />
 
-
+First we configure our CLI
 
     aws configure
 first we list our buckets
