@@ -19,7 +19,7 @@ You’ve completed this step when you get the following message:
 First we configure our CLI
 
     aws configure
-first we list our buckets
+Next we list our buckets
     
     aws s3api list-buckets
 
