@@ -75,7 +75,7 @@ Next we list our buckets
   
     terraform init command 
 
-    <img width="685" height="250" alt="image" src="https://github.com/user-attachments/assets/3f4f6b24-a907-4212-909d-77f649fbdef5" />
+<img width="685" height="250" alt="image" src="https://github.com/user-attachments/assets/3f4f6b24-a907-4212-909d-77f649fbdef5" />
 
     terraform validate
     
