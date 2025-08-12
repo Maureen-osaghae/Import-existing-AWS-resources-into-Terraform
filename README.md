@@ -90,7 +90,7 @@ Follow that up with a
 
     terraform state list. 
 
-We should see aws_s3_bucket.bucket_to_import
+output: aws_s3_bucket.bucket_to_import
 
 <img width="655" height="109" alt="image" src="https://github.com/user-attachments/assets/ad34007f-f3e6-439c-b90a-4a2ec9456e63" />
 
