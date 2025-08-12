@@ -19,6 +19,13 @@ You’ve completed this step when you get the following message:
 First we configure our CLI
 
     aws configure
+
+Create Three files
+1. main.tf
+2. provider.tf
+3. variables.tf
+
+    
 Next we list our buckets
     
     aws s3api list-buckets
